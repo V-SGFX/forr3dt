@@ -1,0 +1,195 @@
+// =============================================
+// Old.Reddit Theme for Flarum
+// Autor: [Twój Nick]
+// Wersja: 1.0
+// =============================================
+
+// ----------------------------
+// Zmienne kolorystyczne
+// ----------------------------
+@primary-color: #5f99cf;       // Główny niebieski (jak nagłówek reddit)
+@secondary-color: #cee3f8;     // Jasnoniebieski (tło sidebaru)
+@background-color: #f8f9fa;    // Szaro-białe tło
+@text-color: #222;             // Główny kolor tekstu
+@muted-text: #888;             // Tekst drugoplanowy
+@border-color: #ddd;           // Kolor obramowań
+@upvote-color: #ff8b60;        // Pomarańczowy upvote
+@downvote-color: #9494ff;      // Niebieski downvote
+@post-bg: #fff;                // Tło postów
+
+// ----------------------------
+// Reset i typografia
+// ----------------------------
+body {
+  background-color: @background-color;
+  color: @text-color;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+// ----------------------------
+// Nagłówek
+// ----------------------------
+.App-header {
+  background-color: white !important;
+  border-bottom: 1px solid @border-color !important;
+  box-shadow: none !important;
+  padding: 10px 0;
+
+  .Header-primary {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .Header-title {
+    color: @primary-color;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+// ----------------------------
+// Lista dyskusji (strona główna)
+// ----------------------------
+.DiscussionList {
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.DiscussionListItem {
+  background: @post-bg;
+  border: 1px solid @border-color;
+  border-radius: 0 !important;
+  margin-bottom: 8px;
+  padding: 10px 15px;
+  transition: border-left 0.2s;
+
+  &:hover {
+    border-left: 3px solid @primary-color;
+  }
+
+  .DiscussionListItem-title {
+    font-size: 16px;
+    color: @text-color;
+    margin-bottom: 5px;
+  }
+
+  .DiscussionListItem-info {
+    color: @muted-text;
+    font-size: 12px;
+  }
+}
+
+// ----------------------------
+// Posty i strzałki głosowania
+// ----------------------------
+.Post {
+  margin-left: 40px;
+  position: relative;
+}
+
+.VotesContainer {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 30px;
+  text-align: center;
+
+  .VoteButton {
+    display: block;
+    color: @muted-text;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &.upvote:hover {
+      color: @upvote-color;
+    }
+
+    &.downvote:hover {
+      color: @downvote-color;
+    }
+  }
+
+  .VotesCount {
+    font-weight: bold;
+    margin: 3px 0;
+    font-size: 14px;
+  }
+}
+
+.Post-main {
+  background: @post-bg;
+  border: 1px solid @border-color;
+  border-radius: 0 !important;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+}
+
+// ----------------------------
+// Przyciski i formularze
+// ----------------------------
+.Button {
+  border-radius: 0 !important;
+  background: #e9e9e9 !important;
+  border: 1px solid @border-color !important;
+  color: @text-color !important;
+  font-size: 13px !important;
+
+  &.Button--primary {
+    background-color: @primary-color !important;
+    color: white !important;
+  }
+}
+
+// ----------------------------
+// Sidebar
+// ----------------------------
+.Composer {
+  background: white;
+  border: 1px solid @border-color;
+}
+
+.DiscussionPage-nav {
+  background: @secondary-color;
+  border: 1px solid darken(@secondary-color, 10%);
+  padding: 15px;
+}
+
+// ----------------------------
+// Stopka
+// ----------------------------
+.App-footer {
+  background: white !important;
+  border-top: 1px solid @border-color !important;
+  padding: 15px 0;
+  margin-top: 20px;
+  font-size: 12px;
+  color: @muted-text;
+}
+
+// ----------------------------
+// Responsywność
+// ----------------------------
+@media (max-width: 768px) {
+  .Post {
+    margin-left: 0;
+  }
+  
+  .VotesContainer {
+    position: static;
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin-bottom: 10px;
+
+    .VoteButton {
+      display: inline-block;
+      margin: 0 5px;
+    }
+  }
+}
